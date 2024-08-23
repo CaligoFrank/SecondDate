@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Go on a Date with Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: 2px solid #000;
+            background-color: #fff;
+            transition: all 0.2s ease-in-out;
+        }
+        .button:hover {
+            background-color: #ddd;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will You Go on a Date with Me?</h1>
+    <div class="buttons">
+        <button id="yes" class="button">Yes</button>
+        <button id="no" class="button">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+
+        noButton.addEventListener('mouseenter', () => {
+            const pageWidth = window.innerWidth - noButton.clientWidth;
+            const pageHeight = window.innerHeight - noButton.clientHeight;
+
+            const newX = Math.random() * pageWidth;
+            const newY = Math.random() * pageHeight;
+
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+        });
+
+        document.getElementById('yes').addEventListener('click', () => {
+            window.location.href = 'yes.html';
+        });
+    </script>
+
+</body>
+</html>
